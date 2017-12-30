@@ -6,7 +6,7 @@ public class Calander {
 
 	private static final int[] EndOfMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
-	public static int getEndofMonth(int month) {
+	public int getEndofMonth(int month) {
 
 		return EndOfMonth[month - 1];
 
@@ -21,12 +21,24 @@ public class Calander {
 		 * System.out.println("15 16 17  18  19  20  21");
 		 * System.out.println("22 23 24  25  26  27  28");
 		 */
-
+		String PROMPT = "cal>";
 		Scanner scanner = new Scanner(System.in);
-		int month = scanner.nextInt();
+		Calander cal = new Calander();
 
-		System.out.println("당신이 입력한 " + month + "월의 마지막 날짜는 " + getEndofMonth(month) + "입니다");
+		System.out.print("반복횟수를 입력하세요 : ");
+		int repeat = scanner.nextInt();
 
+		for (int i = 0; i < repeat; i++) {
+			System.out.println("달을 입력하세요 : ");
+			System.out.println(PROMPT);
+			int month = scanner.nextInt();
+			System.out.println("당신이 입력한 " + month + "월의 마지막 날짜는 " + cal.getEndofMonth(month) + "입니다");
+			
+		}
+
+	
+
+	
 		scanner.close();
 	}
 

@@ -25,20 +25,24 @@ public class Calander {
 		Scanner scanner = new Scanner(System.in);
 		Calander cal = new Calander();
 
-		System.out.print("반복횟수를 입력하세요 : ");
-		int repeat = scanner.nextInt();
+		int month = 1;
 
-		for (int i = 0; i < repeat; i++) {
+		while (true) {
 			System.out.println("달을 입력하세요 : ");
 			System.out.println(PROMPT);
-			int month = scanner.nextInt();
+			month = scanner.nextInt();
+			// 종료조건
+			if (month < 1) {
+				break;
+			}
+			// 입력조건
+			if (month > 12) {
+				System.out.println("입력한 달이 존재하는 범위에 있지 않습니다. (1~12)");
+				continue;
+			}
 			System.out.println("당신이 입력한 " + month + "월의 마지막 날짜는 " + cal.getEndofMonth(month) + "입니다");
-			
 		}
-
-	
-
-	
+		System.out.println("종료");
 		scanner.close();
 	}
 

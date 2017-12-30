@@ -4,6 +4,14 @@ import java.util.Scanner;
 
 public class Calander {
 
+	private static final int[] EndOfMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+	public static int getEndofMonth(int month) {
+
+		return EndOfMonth[month - 1];
+
+	}
+
 	public static void main(String[] args) {
 		// TODO 자동 생성된 메소드 스텁
 		/*
@@ -14,12 +22,10 @@ public class Calander {
 		 * System.out.println("22 23 24  25  26  27  28");
 		 */
 
-		int[] calander_lastday = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-		System.out.println("알고 싶은 달을 입력해주세요 (1~12)");
 		Scanner scanner = new Scanner(System.in);
 		int month = scanner.nextInt();
 
-		System.out.println("당신이 입력한" + month + " 월의 마지막 날짜는 " + calander_lastday[month - 1] + " 입니다");
+		System.out.println("당신이 입력한 " + month + "월의 마지막 날짜는 " + getEndofMonth(month) + "입니다");
 
 		scanner.close();
 	}

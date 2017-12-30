@@ -20,7 +20,7 @@ public class Sum {
 		
 		
 		System.out.println(a+b);
-		
+		scanner.close();
 		
 
 	}

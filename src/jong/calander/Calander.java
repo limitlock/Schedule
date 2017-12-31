@@ -1,49 +1,44 @@
 package jong.calander;
 
-import java.util.Scanner;
-
 public class Calander {
 
-	private static final int[] EndOfMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	private static final int[] END_DAYS = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	private static final int[] LEAP_END_DAYS = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
-	public int getEndofMonth(int month) {
+	public boolean isLeapYear(int year) {
+		if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-		return EndOfMonth[month - 1];
+	public int getEndOfMonth(int year, int month) {
+		if (isLeapYear(year)) {
+			return LEAP_END_DAYS[month - 1];
+		} else {
+			return END_DAYS[month - 1];
+		}
 
 	}
 
-	public static void main(String[] args) {
-		// TODO 자동 생성된 메소드 스텁
-		/*
-		 * System.out.println("일 월  화  수  목  금  토");
-		 * System.out.println("1   2   3   4    5   6   7");
-		 * System.out.println("8   9  10  11  12  13  14");
-		 * System.out.println("15 16 17  18  19  20  21");
-		 * System.out.println("22 23 24  25  26  27  28");
-		 */
-		String PROMPT = "cal>";
-		Scanner scanner = new Scanner(System.in);
-		Calander cal = new Calander();
+	public void printCalander(int year, int month) {
+		System.out.printf("    <<%4d년%3d월>> \n", year, month);
+		System.out.println("  일 월  화 수 목  금  토");
+		System.out.println(" --------------------");
 
-		int month = 1;
+		int endDay = getEndOfMonth(year, month);
 
-		while (true) {
-			System.out.println("달을 입력하세요 : ");
-			System.out.println(PROMPT);
-			month = scanner.nextInt();
-			// 종료조건
-			if (month < 1) {
-				break;
+		for (int i = 1; i <= endDay; i++) {
+
+			System.out.printf("%3d", i);
+			if (i % 7 == 0) {
+				System.out.println();
 			}
-			// 입력조건
-			if (month > 12) {
-				System.out.println("입력한 달이 존재하는 범위에 있지 않습니다. (1~12)");
-				continue;
-			}
-			System.out.println("당신이 입력한 " + month + "월의 마지막 날짜는 " + cal.getEndofMonth(month) + "입니다");
+
 		}
-		System.out.println("종료");
-		scanner.close();
+		System.out.println("");
+
 	}
 
 }

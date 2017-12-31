@@ -27,7 +27,7 @@ public class Prompt {
 		else
 			return 0;
 	}
-
+   
 	public void runPrompot() {
 		Scanner scanner = new Scanner(System.in);
 		Calander cal = new Calander();

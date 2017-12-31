@@ -21,7 +21,7 @@ public class Calander {
 		}
 
 	}
-
+   
 	public void printCalander(int year, int month) {
 		System.out.printf("  <<%d년%d월>> \n", year, month);
 		System.out.println(" SU MO TU WD TH FR SA");

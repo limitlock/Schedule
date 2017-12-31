@@ -58,6 +58,7 @@ public class Calander {
 
 	}
 
+	
 	// 1970년 1월 1일 목요일을 기준으로 요일을 구한다.
 	private int getWeekDay(int year, int month, int day) {
 		// TODO 자동 생성된 메소드 스텁
@@ -73,8 +74,8 @@ public class Calander {
 		for (int i = 1; i < month; i++) {
 			int delta = getEndOfMonth(year, i);
 			count += delta;
-		}
-
+		} 
+ 
 		count += day;
 
 		int weekday = (count + F_WEEKDAY) % 7;

@@ -62,13 +62,12 @@ public class Prompt {
 		}
 		System.out.println("종료");
 		scanner.close();
-
+ 
 	}
 
 	public static void main(String[] args) {
 
 		// 셀 실행
-
 		Prompt p = new Prompt();
 		p.runPrompot();
 

@@ -34,8 +34,6 @@ public class Prompt {
 
 		int month = 1;
 		int year = 2017;
-		// int weekday = 0;
-		int weekday = 0;
 
 		while (true) {
 			System.out.println("년도을 입력하세요.(exit : -1)");
@@ -55,20 +53,12 @@ public class Prompt {
 			 * = parseDay(str_weekday);
 			 */
 
-			System.out.println("첫째 날을 입력하세요(su, mo, tu, we, th, fr, sa).");
-			System.out.print("FIRST_DAY> ");
-			String str_weekday = scanner.next();
-			weekday = parseDay(str_weekday);
-
 			// 입력조건
 			if (month < 1 || month > 12) {
 				System.out.println("잘못된 입력입니다. \n" + "당신이 입력한 값은 " + month + "입니다.\n");
 				continue;
 			}
 			
-			cal.printCalander(year, month);
-			// System.out.println("당신이 입력한 " + month + "월의 마지막 날짜는 " +
-			// cal.getEndofMonth(month) + "입니다\n");
 			cal.printCalander(year, month);
 		}
 		System.out.println("종료");

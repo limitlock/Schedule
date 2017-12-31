@@ -22,22 +22,36 @@ public class Calander {
 
 	}
 
-	public void printCalander(int year, int month) {
-		System.out.printf("    <<%4d년%3d월>> \n", year, month);
-		System.out.println("  일 월  화 수 목  금  토");
+	public void printCalander(int year, int month, int weekday) {
+		System.out.printf("  <<%4d년%3d월>> \n", year, month);
+		System.out.println(" SU MO TU WD TH FR SA");
 		System.out.println(" --------------------");
 
-		int endDay = getEndOfMonth(year, month);
+		// print blank
+		for (int i = 0; i < weekday; i++) {
+			System.out.print("   ");
+		}
 
-		for (int i = 1; i <= endDay; i++) {
+		int endDay = getEndOfMonth(year, month);
+		int count = 7 - weekday;
+		int div_condition = (count < 7) ? count : 0;
+
+		// print first line
+		for (int i = 1; i <= count; i++) {
+			System.out.printf("%3d", i);
+		}
+		System.out.println();
+
+		for (int i = count + 1; i <= endDay; i++) {
 
 			System.out.printf("%3d", i);
-			if (i % 7 == 0) {
+			if (i % 7 == div_condition) {
 				System.out.println();
 			}
 
 		}
-		System.out.println("");
+		System.out.println();
+		System.out.println();
 
 	}
 

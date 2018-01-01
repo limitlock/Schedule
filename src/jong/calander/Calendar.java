@@ -1,6 +1,6 @@
 package jong.calander;
 
-public class Calander {
+public class Calendar {
 
 	private static final int[] END_DAYS = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 	private static final int[] LEAP_END_DAYS = { 0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
@@ -63,7 +63,7 @@ public class Calander {
 	private int getWeekDay(int year, int month, int day) {
 		// TODO 자동 생성된 메소드 스텁
 		int f_year = 1970;
-		final int F_WEEKDAY = 3;
+		final int F_WEEKDAY = 4;
 
 		int count = 0;
 		for (int i = f_year; i < year; i++) {
@@ -76,7 +76,7 @@ public class Calander {
 			count += delta;
 		} 
  
-		count += day;
+		count += day - 1;
 
 		int weekday = (count + F_WEEKDAY) % 7;
 		return weekday;

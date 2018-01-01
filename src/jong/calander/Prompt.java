@@ -12,7 +12,6 @@ public class Prompt {
 		System.out.println("| 3. 달력 보기");
 		System.out.println("| h. 도움말 q. 종료");
 		System.out.println("+----------------------+");
-		
 	}
 
 	/**
@@ -42,12 +41,12 @@ public class Prompt {
 
 	public void runPrompot() throws ParseException {
 		printMenu();
-
+		
 		Scanner scanner = new Scanner(System.in);
 		Calendar cal = new Calendar();
 
 		while (true) {
-			System.out.println("명령 (1, 2, 3, h, q)");
+			System.out.println("1.일정등록 2.일정검색 3.달력보기 h.도움말 q.종료");
 			String cmd = scanner.next();
 			if (cmd.equals("1")) {
 				cmdRegister(scanner, cal);
@@ -65,6 +64,7 @@ public class Prompt {
 		scanner.close();
 
 	}
+
 
 	private void cmdHelp() {
 		// TODO 자동 생성된 메소드 스텁

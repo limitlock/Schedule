@@ -21,7 +21,7 @@ public class Calendar {
 		Date date = new SimpleDateFormat("yyyy-mm-dd").parse(strDate);
 		// System.out.println(date);
 		planMap.put(date, plan);
-
+ 
 	}
 
 	public String searchPlan(String strDate) throws ParseException {

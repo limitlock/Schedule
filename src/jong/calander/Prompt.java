@@ -85,7 +85,7 @@ public class Prompt {
 		System.out.print("MONTH> ");
 		month = s.nextInt();
 
-		// 입력조건
+		// 입력조건 
 		if (month < 1 || month > 12) {
 			System.out.println("잘못된 입력입니다.");
 			return;

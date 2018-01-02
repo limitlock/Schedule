@@ -48,6 +48,7 @@ public class Prompt {
 
 		Scanner scanner = new Scanner(System.in);
 		Calendar cal = new Calendar();
+
 		boolean isLoop = true;
 		while (isLoop) {
 			System.out.println("1.일정등록 2.일정검색 3.달력보기 h.도움말 q.종료");
@@ -55,12 +56,16 @@ public class Prompt {
 			switch (cmd) {
 			case "1":
 				cmdRegister(scanner, cal);
+				break;
 			case "2":
 				cmdSearch(scanner, cal);
+				break;
 			case "3":
 				cmdCalendar(scanner, cal);
+				break;
 			case "h":
 				cmdHelp();
+				break;
 			case "q":
 				isLoop = false;
 				break;
@@ -107,6 +112,7 @@ public class Prompt {
 		String date = s.next();
 		PlanItem plan;
 		plan = c.searchPlan(date);
+
 		if (plan != null) {
 			System.out.println(plan.detail);
 		} else {
@@ -127,7 +133,9 @@ public class Prompt {
 		while (!(word = s.next()).endsWith(";")) {
 			text += word + " ";
 		}
-		word = word.replaceAll(";", "");
+		word = word.replace(";", "");
+		text += word;
+
 		c.registerPlan(date, text);
 
 	}

@@ -35,4 +35,12 @@ public class PlanItem {
 
 	}
 
+	public String saveString() {
+		// TODO 자동 생성된 메소드 스텁
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
+		String sdate = formatter.format(planDate);
+		return sdate + "," + "\"" + detail + "\"" + "\n";
+
+	}
+
 }

@@ -65,11 +65,9 @@ public class Prompt {
 				isLoop = false;
 				break;
 			}
-
 		}
 		System.out.println("일정관리 프로그램을 종료합니다.");
 		scanner.close();
-
 	}
 
 	private void cmdHelp() {
@@ -107,15 +105,13 @@ public class Prompt {
 		System.out.println("[일정 검색]");
 		System.out.println("날짜를 입력해 주세요 (yyyy-MM-dd).");
 		String date = s.next();
-		String plan = "";
-		try {
-			plan = c.searchPlan(date);
-		} catch (ParseException e) {
-			// TODO 자동 생성된 catch 블록
-			e.printStackTrace();
-			System.err.println("일정 검색 중 오류가 발생했습니다.");
+		PlanItem plan;
+		plan = c.searchPlan(date);
+		if (plan != null) {
+			System.out.println(plan.detail);
+		} else {
+			System.out.println("일정이 없습니다.");
 		}
-		System.out.println(plan);
 
 	}
 
@@ -125,10 +121,13 @@ public class Prompt {
 		System.out.println("날짜를 입력해 주세요 (yyyy-MM-dd).");
 		String date = s.next();
 		String text = "";
-		s.nextLine(); // ignore one newline
-		System.out.println("일정을 입력해 주세요.");
-		text = s.nextLine();
+		System.out.println("일정을 입력해 주세요.(끝문자 = ;)");
+		String word;
 
+		while (!(word = s.next()).endsWith(";")) {
+			text += word + " ";
+		}
+		word = word.replaceAll(";", "");
 		c.registerPlan(date, text);
 
 	}

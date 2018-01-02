@@ -21,50 +21,56 @@ public class Prompt {
 	 * @return 0은 일요일 ~ 6은 토요일
 	 */
 	public int parseDay(String week) {
-		if (week.equals("su"))
+
+		switch (week) {
+		case "su":
 			return 0;
-		else if (week.equals("mo"))
+		case "mo":
 			return 1;
-		else if (week.equals("tu"))
+		case "tu":
 			return 2;
-		else if (week.equals("we"))
+		case "we":
 			return 3;
-		else if (week.equals("th"))
+		case "th":
 			return 4;
-		else if (week.equals("fr"))
+		case "fr":
 			return 5;
-		else if (week.equals("sa"))
+		case "sa":
 			return 6;
-		else
+		default:
 			return 0;
+		}
+
 	}
 
 	public void runPrompot() throws ParseException {
 		printMenu();
-		
+
 		Scanner scanner = new Scanner(System.in);
 		Calendar cal = new Calendar();
-
-		while (true) {
+		boolean isLoop = true;
+		while (isLoop) {
 			System.out.println("1.일정등록 2.일정검색 3.달력보기 h.도움말 q.종료");
 			String cmd = scanner.next();
-			if (cmd.equals("1")) {
+			switch (cmd) {
+			case "1":
 				cmdRegister(scanner, cal);
-			} else if (cmd.equals("2")) {
+			case "2":
 				cmdSearch(scanner, cal);
-			} else if (cmd.equals("3")) {
+			case "3":
 				cmdCalendar(scanner, cal);
-			} else if (cmd.equals("h")) {
+			case "h":
 				cmdHelp();
-			} else if (cmd.equals("q")) {
+			case "q":
+				isLoop = false;
 				break;
 			}
+
 		}
 		System.out.println("일정관리 프로그램을 종료합니다.");
 		scanner.close();
 
 	}
-
 
 	private void cmdHelp() {
 		// TODO 자동 생성된 메소드 스텁
@@ -85,7 +91,7 @@ public class Prompt {
 		System.out.print("MONTH> ");
 		month = s.nextInt();
 
-		// 입력조건 
+		// 입력조건
 		if (month < 1 || month > 12) {
 			System.out.println("잘못된 입력입니다.");
 			return;
